@@ -1,0 +1,3 @@
+/Users/ctaunige/keysight_measure
+time python I_V_acquisition.py; mv acquired_data.txt FBK_TILE01_CHxx.txt
+/Users/ctaunige/keysight_measure; time python I_V_acquisition.py; mv acquired_data.txt FBK_TILE01_CHxx.txt
