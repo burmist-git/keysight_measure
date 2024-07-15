@@ -35,8 +35,8 @@ else
 	    echo "out_log_file        $out_log_file" | tee -a $out_log_file
 	    out_data_file_name=$data_path$tile_produser"_"TILE"$tile_ID"_"CH"$CHID'.txt'
 	    echo "out_data_file_name  $out_data_file_name" | tee -a $out_log_file	    
-	    #time python I_V_acquisition.py  | tee -a $out_log_file
-	    #mv acquired_data.txt $out_data_file_name  | tee -a $out_log_file
+	    time python I_V_acquisition.py | tee -a $out_log_file
+	    mv acquired_data.txt $out_data_file_name | tee -a $out_log_file
 	    data_time_end=$(date '+%d.%m.%Y-%H:%M:%S')
 	    echo "data_time_end       $data_time_end" | tee -a $out_log_file
 	    echo " " | tee -a $out_log_file
