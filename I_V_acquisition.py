@@ -4,12 +4,14 @@ import atexit
 import pyvisa as visa
 import time
 import threading
+from datetime import datetime, date
+from temp_and_humi import get_temp_and_humi
 from Instruments.Source_Measure_Unit import Keysight_Source_Measure_Unit_B2902B
 
 # USER DEFINED VARIABLES
 
 ## Set the input parameters for the IV curve
-samples_per_measure = 20  # define the number of acquisition per sweep-point
+samples_per_measure = 10  # define the number of acquisition per sweep-point
 fwd_voltage = -1.5        # Minimum forward bias voltage
 min_voltage = 0.0         # Voltage to start coarse scan in reverse bias
 inter_voltage = 30.0      # Voltage to start fine scan in forward bias
@@ -17,9 +19,9 @@ max_voltage = 42.0        # Voltage to stop the scan
 
 ## Define number of data points
 data_points = {}
-data_points['fwd'] = 20                                            # Number of points for forward bias scan
-data_points['coarse'] = 20                                         # Number of points for coarse scan
-data_points['fine'] = int((max_voltage - inter_voltage) * 4) + 1   # Number of points for fine scan
+data_points['fwd'] = 16                                            # Number of points for forward bias scan
+data_points['coarse'] = 16                                         # Number of points for coarse scan
+data_points['fine'] = int((max_voltage - inter_voltage) * 5) + 1   # Number of points for fine scan
 #
 volt_sweep = list(np.linspace(fwd_voltage,min_voltage,data_points['fwd']))
 volt_sweep.extend(list(np.linspace(min_voltage,inter_voltage,data_points['coarse'])))
@@ -69,8 +71,14 @@ source_meter.activate_output('2')
 #print(f'Voltage_sweep: {volt_sweep}')
 #keystroke=input('Press a key \n')
 
+temp, hum = get_temp_and_humi()
+temp_and_humi_str=("#"+str(datetime.now())+", Temp:  " + "%2.1f" % temp + "°C, Humi: " + "%2.1f" % hum + " %" + '\n')
+print(temp_and_humi_str)
+#print(str(datetime.now())+", Temp:  " + "%2.1f" % temp + "°C, Humi: " + "%2.1f" % hum + " %")
+
 # write data to file
 with open(file_name, 'a') as file:
+    file.write(temp_and_humi_str)
     file.write('Sourced_voltage,Channel_Current\n')
     for i in volt_sweep:
         #source_meter.deactivate_output('1')
