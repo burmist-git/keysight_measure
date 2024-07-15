@@ -1,0 +1,66 @@
+data_time_start     15.07.2024-09:55:38
+data_path           ./data/
+tile_produser       FBK
+tile_ID             01
+CHID                00
+out_log_file        ./data/FBK_TILE01.log
+out_data_file_name  ./data/FBK_TILE01_CH00.txt
+data_time_end       15.07.2024-09:55:38
+ 
+ 
+ 
+data_time_start     15.07.2024-09:55:40
+data_path           ./data/
+tile_produser       FBK
+tile_ID             01
+CHID                01
+out_log_file        ./data/FBK_TILE01.log
+out_data_file_name  ./data/FBK_TILE01_CH01.txt
+data_time_end       15.07.2024-09:55:40
+ 
+ 
+ 
+data_time_start     15.07.2024-09:55:41
+data_path           ./data/
+tile_produser       FBK
+tile_ID             01
+CHID                02
+out_log_file        ./data/FBK_TILE01.log
+out_data_file_name  ./data/FBK_TILE01_CH02.txt
+data_time_end       15.07.2024-09:55:41
+ 
+ 
+ 
+data_time_start     15.07.2024-09:55:42
+data_path           ./data/
+tile_produser       FBK
+tile_ID             01
+CHID                03
+out_log_file        ./data/FBK_TILE01.log
+out_data_file_name  ./data/FBK_TILE01_CH03.txt
+data_time_end       15.07.2024-09:55:42
+ 
+ 
+ 
+data_time_start     15.07.2024-09:55:43
+data_path           ./data/
+tile_produser       FBK
+tile_ID             01
+CHID                04
+out_log_file        ./data/FBK_TILE01.log
+out_data_file_name  ./data/FBK_TILE01_CH04.txt
+data_time_end       15.07.2024-09:55:43
+ 
+ 
+ 
+data_time_start     15.07.2024-09:55:44
+data_path           ./data/
+tile_produser       FBK
+tile_ID             01
+CHID                06
+out_log_file        ./data/FBK_TILE01.log
+out_data_file_name  ./data/FBK_TILE01_CH06.txt
+data_time_end       15.07.2024-09:55:44
+ 
+ 
+ 

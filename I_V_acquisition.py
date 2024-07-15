@@ -72,7 +72,7 @@ source_meter.activate_output('2')
 
 # write data to file
 with open(file_name, 'a') as file:
-    file.write('#Sourced voltage, Channel Current \n')
+    file.write('Sourced_voltage,Channel_Current\n')
     for i in volt_sweep:
         #source_meter.deactivate_output('1')
         #time.sleep(1)
@@ -81,7 +81,7 @@ with open(file_name, 'a') as file:
         time.sleep(1)
         source_meter.acquire_data('1','current')
         for j in range(samples_per_measure):
-            file.write(f"{i},  {source_meter.acquire_data('2','current')}")
+            file.write(f"{i},{source_meter.acquire_data('2','current')}")
             time.sleep(0.1)  # not really needed, added for precaution
 source_meter.deactivate_output('1')
 source_meter.deactivate_output('2')
