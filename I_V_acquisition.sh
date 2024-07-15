@@ -33,7 +33,7 @@ else
 	    echo "tile_ID             $tile_ID" | tee -a $out_log_file
 	    echo "CHID                $CHID" | tee -a $out_log_file
 	    echo "out_log_file        $out_log_file" | tee -a $out_log_file
-	    out_data_file_name=$data_path$tile_produser"_"TILE"$tile_ID"_"CH"$CHID'.txt'
+	    out_data_file_name=$data_path$tile_produser"_"TILE"$tile_ID"_"CH"$CHID'_'$data_time_start'.txt'
 	    echo "out_data_file_name  $out_data_file_name" | tee -a $out_log_file	    
 	    time python I_V_acquisition.py | tee -a $out_log_file
 	    mv acquired_data.txt $out_data_file_name | tee -a $out_log_file
