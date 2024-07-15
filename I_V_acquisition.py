@@ -10,26 +10,25 @@ from Instruments.Source_Measure_Unit import Keysight_Source_Measure_Unit_B2902B
 
 ## Set the input parameters for the IV curve
 samples_per_measure = 20  # define the number of acquisition per sweep-point
-fwd_voltage = -1.5  # Minimum forward bias voltage
-min_voltage = 0.0   # Voltage to start coarse scan in reverse bias
-inter_voltage = 30.0  # Voltage to start fine scan in forward bias
-max_voltage = 42.0  # Voltage to stop the scan
+fwd_voltage = -1.5        # Minimum forward bias voltage
+min_voltage = 0.0         # Voltage to start coarse scan in reverse bias
+inter_voltage = 30.0      # Voltage to start fine scan in forward bias
+max_voltage = 42.0        # Voltage to stop the scan
 
 ## Define number of data points
 data_points = {}
-data_points['fwd'] = 20    # Number of points for forward bias scan
-data_points['coarse'] = 20     # Number of points for coarse scan
-data_points['fine'] = int((max_voltage - inter_voltage) * 2) + 1   # Number of points for fine scan
-#volt_sweep = [int((min_voltage - fwd_voltage) * 20 + 1), int((inter_voltage - min_voltage) + 1), int((max_voltage - inter_voltage) * 2) + 1]
+data_points['fwd'] = 20                                            # Number of points for forward bias scan
+data_points['coarse'] = 20                                         # Number of points for coarse scan
+data_points['fine'] = int((max_voltage - inter_voltage) * 4) + 1   # Number of points for fine scan
+#
 volt_sweep = list(np.linspace(fwd_voltage,min_voltage,data_points['fwd']))
 volt_sweep.extend(list(np.linspace(min_voltage,inter_voltage,data_points['coarse'])))
 volt_sweep.extend(list(np.linspace(inter_voltage,max_voltage,data_points['fine'])))
-print(data_points )
+print(data_points)
 print(volt_sweep)
+#
 #keystroke=input('Press a key \n')
 
-
-#volt_sweep =  list(np.arange(30,37,0.1)) # set the voltage range (initial_point, final_point, step_size) all values in [Volt]
 file_name = "acquired_data.txt"
 
 # Code to check the VISA devices that can be reached 
@@ -93,6 +92,3 @@ source_meter.write(':SYST:BEEP:IMM 1000,5')
 
 print(source_meter.query(':SYSTEM:ERROR:ALL?'))
 print("Done")
-
-
-        
